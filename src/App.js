@@ -17,12 +17,14 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
 
   const getMovieRequest = async (searchValue) => {
-    const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=${process.env.REACT_APP_MOVIE_API}`;
-    const response = await fetch(url);
-    const responseJson = await response.json();
-    console.log(responseJson);
-    if (responseJson.Search) {
-      setMovies(responseJson.Search);
+    if (searchValue !== "") {
+          const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=${process.env.REACT_APP_MOVIE_API}`;
+          const response = await fetch(url);
+          const responseJson = await response.json();
+          console.log(responseJson);
+          if (responseJson.Search) {
+            setMovies(responseJson.Search);
+          }
     }
   };
   useEffect(() => {
