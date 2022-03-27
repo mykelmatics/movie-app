@@ -36,7 +36,7 @@ function App() {
    
   }
   useEffect(() => {
-    const movieFavourites = JSON.parse(localStorage.getItem('movie-app'))  
+    const movieFavourites = localStorage.getItem('movie-app') ? JSON.parse(localStorage.getItem('movie-app')) : [];
     setFavourites(movieFavourites)
   }, [])
   
