@@ -26,6 +26,7 @@ function App() {
             setMovies(responseJson.Search);
           }
     }
+    return
   };
   useEffect(() => {
     getMovieRequest(searchValue);
